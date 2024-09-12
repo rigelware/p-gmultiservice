@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Azienda di Sicurezza - Servizi di Sicurezza e Protezione">
+    <title>Azienda Sicurezza</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Aggiungi il CSS di Leaflet per la mappa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <style>
+        /* Stili per la mappa */
+        #map {
+            height: 50vh; /* Occupa il 50% dell'altezza del viewport */
+            min-height: 300px; /* Altezza minima */
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Stili per i bottoni di contatto */
+        .contact-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            margin-right: 10px; /* Spazio tra i bottoni */
+        }
+
+        .contact-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="img/logo.jpeg" alt="Logo Azienda Sicurezza">
+                </li>
+            </ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Benvenuti in <span>P&G multiservice</span></h1>
+            <p>Offriamo soluzioni personalizzate per la sicurezza della tua azienda e casa.</p>
+            <a href="#servizi" class="btn">Scopri i nostri servizi</a>
+        </div>
+    </section>
+
+    <section id="servizi">
+        <h2>I nostri servizi</h2>
+        <div class="service-box">
+            <div class="service">
+                <h3>Videosorveglianza</h3>
+                <p>Installazione di sistemi di videosorveglianza avanzati.</p>
+            </div>
+            <div class="service">
+                <h3>Sicurezza Aziendale</h3>
+                <p>Protezione completa per la tua azienda, dalla consulenza alla messa in sicurezza.</p>
+            </div>
+            <div class="service">
+                <h3>Sistemi Antifurto</h3>
+                <p>Sistemi di antifurto per prevenire furti e intrusioni indesiderate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="chi-siamo">
+        <h2>Chi Siamo</h2>
+        <p>Azienda Sicurezza è leader nel settore della protezione e sicurezza da oltre 20 anni. Il nostro team di esperti garantisce soluzioni innovative e personalizzate per ogni esigenza.</p>
+    </section>
+
+    <section id="contatti">
+        <h2>Contattaci</h2>
+        <p>Per maggiori informazioni o per richiedere un preventivo, puoi contattarci:</p>
+        <a href="mailto:info@azienda-sicurezza.it" class="contact-button">Invia un'email</a>
+        <a href="tel:+393318963983" class="contact-button">Chiama il nostro numero</a>
+
+        <!-- Aggiungi la mappa -->
+        <h3>Dove trovarci</h3>
+        <div id="map"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 <a href="https://20033417.github.io/presentazione/" target="_blank" class="rigelware-link">Rigelware</a>. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Aggiungi il JavaScript di Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Inizializza la mappa
+        var map = L.map('map').setView([36.78587287262748, 14.90403159321411], 15); // Coordinate esempio
+
+        // Aggiungi il layer della mappa da OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Aggiungi un marker per la posizione dell'azienda
+        var marker = L.marker([36.78587287262748, 14.90403159321411]).addTo(map)
+            .bindPopup('Azienda Sicurezza.<br>Via Statale, 48, 97014 Ispica RG')
+            .openPopup();
+    </script>
+</body>
+</html>
